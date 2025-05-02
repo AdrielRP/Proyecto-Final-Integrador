@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Y Spa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <style>
+        :root {
+            --color-rosa: #f8d5dd;
+            --color-beige: #fff4ec;
+            --color-marfil: #faf7f0;
+            --color-texto: #4b3f3f;
+            --color-acento: #e6a8b1;
+            --color-hover: #d68a9a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            font-family: 'Segoe UI', sans-serif;
+            height: 100%;
+            width: 100%;
+            background-color: var(--color-marfil);
+            color: var(--color-texto);
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+            background-color: transparent;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--color-acento);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--color-texto);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-acento);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, var(--color-rosa), var(--color-beige));
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+        }
+
+        .text-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .text-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--color-texto);
+        }
+
+        .text-content p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--color-texto);
+        }
+
+        .text-content a {
+            padding: 12px 15px;
+            background-color: var(--color-acento);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .text-content a:hover {
+            background-color: var(--color-hover);
+        }
+
+        .boton{
+            padding: 12px 25px;
+            background-color: var(--color-acento);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+        .boton:hover{
+            background-color: var(--color-hover);
+        }
+
+        .image-content {
+            flex: 1;
+            max-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 80px;
+            }
+
+            .text-content {
+                padding: 0;
+            }
+
+            .text-content h1 {
+                font-size: 36px;
+            }
+
+            .text-content p {
+                font-size: 16px;
+            }
+
+            .image-content {
+                margin-top: 20px;
+            }
+
+            .image-content img {
+                max-width: 90%;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="logo">Loana</div>
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="#">Sobre Nosotros</a>
+                <a href="#">Contacto</a>
+                <a href="regist.html" class="boton">Registrate</a>
+                <a href="login.html" class="boton">Accede</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <div class="text-content">
+                    <h1>Bienvenidos a Loana Salón & Spa</h1>
+                    <p>Tu bienestar y belleza son nuestra prioridad. En LOANA SALON & SPA, te ofrecemos una experiencia
+                        única para realzar tu imagen y sentirte increíble. Con un equipo de expertos apasionados por lo
+                        que hacen, nos especializamos en cortes, peinados, tratamientos de piel, uñas y todo lo que
+                        necesitas para brillar en cada momento.</p>
+                    <a href="login.html">Reserva tu cita</a>
+                </div>
+                <div class="image-content">
+                    <img src="images/in2.jpeg" alt="Imagen spa">
+                </div>
+            </div>
+        </section>
+
+        <section class="welcome">
+            <div class="welcome-1">
+
+            </div>
+
+            <div class="welcome-2">
+                <h2>Bienvenidos al salón&spa</h2>
+                <p class="b1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nobis in expedita adipisci
+                    laudantium</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio cupiditate blanditiis
+                    enim. Praesentium vero animi temporibus blanditiis quia eius, repellat quisquam possimus atque
+                    deleniti
+                    asperiores autem laborum pariatur harum.
+                </p>
+                <a href="#" class="btn-1">Información</a>
+            </div>
+
+        </section>
+
+
+
+        <main class="services container">
+            <div class="services">
+                <h2>Nuestros servicios</h2>
+                <hr>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, fugit dolores temporibus, iusto
+                    maiores
+                    nostrum ad repellat veniam, sed fugiat voluptatibus magni omnis blanditiis quia deleniti eos qui
+                    itaque
+                    voluptas.
+                </p>
+            </div>
+
+            <div class="services-group">
+                <div class="services-1">
+                    <img src="images/i1.svg" alt="">
+                    <h3>Servicio 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. S</p>
+                    <a href="#">Saber más</a>
+                </div>
+
+                <div class="services-1">
+                    <img src="images/i2.svg" alt="">
+                    <h3>Servicio 2</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. S</p>
+                    <a href="#">Saber más</a>
+                </div>
+
+                <div class="services-1">
+                    <img src="images/i3.svg" alt="">
+                    <h3>Servicio 3</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. S</p>
+                    <a href="#">Saber más</a>
+                </div>
+
+            </div>
+            <a href="#" class="btn-1">Información</a>
+
+        </main>
+
+        <section class="prices">
+            <div class="prices-1">
+                <h2>Lista de precios</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae sapiente, libero aut veritatis
+                    officiis laudantium neque corrupti minus inventore sequi rem qui necessitatibus, similique modi,
+                    minima
+                    distinctio saepe soluta! Accusamus.</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Corte</th>
+                            <td>$180</td>
+                        </tr>
+                        <tr>
+                            <th>Tinte</th>
+                            <td>$530</td>
+                        </tr>
+                        <tr>
+                            <th>A domicilio</th>
+                            <td>$1000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" class="btn-1">Información</a>
+            </div>
+            <div class="prices-2"></div>
+        </section>
+
+        <section class="personal container">
+            <div class="personal-txt">
+                <h2>Nuestros Estilistas</h2>
+                <hr>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laudantium esse doloremque, corrupti
+                    inventore minima ratione asperiores eligendi recusandae voluptates. Quisquam modi dolorem sint
+                    corrupti
+                    officiis obcaecati nesciunt ullam unde!</p>
+
+            </div>
+            <div class="personal-group">
+                <div class="personal-1">
+                    <img src="images/f9.jpeg" alt="">
+                    <h3>Lorem</h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laudantium esse doloremque,
+                        corrupti
+                        inventore minima ratione asperiores
+                    </p>
+                    <a href="#">Saber más</a>
+                </div>
+
+                <div class="personal-1">
+                    <img src="images/f8.jpeg" alt="">
+                    <h3>Lorem</h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laudantium esse doloremque,
+                        corrupti
+                        inventore minima ratione asperiores
+                    </p>
+                    <a href="#">Saber más</a>
+                </div>
+
+                <div class="personal-1">
+                    <img src="images/f7.jpeg" alt="">
+                    <h3>Lorem</h3>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt laudantium esse doloremque,
+                        corrupti
+                        inventore minima ratione asperiores
+                    </p>
+                    <a href="#">Saber más</a>
+                </div>
+
+
+            </div>
+            <a href="#" class="btn-1">Información</a>
+
+        </section>
+
+        <footer>
+            
+            <div class="footer-txt">
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicin
+                </p>
+
+            </div>
+        </footer>
+
+
+
+
+
+    </body>
+
+</html>
