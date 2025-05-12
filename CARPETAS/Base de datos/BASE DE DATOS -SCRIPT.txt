@@ -1,0 +1,117 @@
+CREATE DATABASE integradorbd;
+USE integradorbd;
+
+-- Tabla: usuario
+CREATE TABLE usuario (
+    ID_Usuario INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    DNI VARCHAR(50) NOT NULL,
+    Correo VARCHAR(255),
+    Contraseña VARCHAR(255) NOT NULL,
+    Tipo VARCHAR(50) NOT NULL
+);
+
+-- Tabla: empleado
+CREATE TABLE empleado (
+    ID_Empleado INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    DNI VARCHAR(20) NOT NULL,
+    Direccion VARCHAR(255),
+    Telefono VARCHAR(20),
+    ID_Usuario INT,
+    FOREIGN KEY (ID_Usuario) REFERENCES usuario(ID_Usuario)
+);
+
+-- Tabla: cita
+CREATE TABLE cita (
+    ID_Cita INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Hora TIME NOT NULL,
+    Costo INT,
+    Estado VARCHAR(255) NOT NULL,
+    Estado_pago VARCHAR(50),
+    FK_ID_Cliente INT,
+    FK_ID_Empleado INT,
+    FOREIGN KEY (FK_ID_Empleado) REFERENCES empleado(ID_Empleado)
+);
+
+-- Tabla: servicio
+CREATE TABLE servicio (
+    ID_Servicio INT AUTO_INCREMENT PRIMARY KEY,
+    Descripcion VARCHAR(255),
+    Precio DECIMAL(10,2) NOT NULL,
+    Duracion INT,
+    FK_ID_Tipo INT
+);
+
+-- Tabla: historial_cita
+CREATE TABLE historial_cita (
+    ID_Historial INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha_registro DATE NOT NULL,
+    Estado_cita VARCHAR(255),
+    FK_ID_Cita INT,
+    FK_ID_Servicio INT,
+    FK_ID_Pago INT,
+    FOREIGN KEY (FK_ID_Cita) REFERENCES cita(ID_Cita),
+    FOREIGN KEY (FK_ID_Servicio) REFERENCES servicio(ID_Servicio)
+);
+
+-- Tabla: pago
+CREATE TABLE pago (
+    ID_Pago INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Hora TIME NOT NULL,
+    Subtotal DECIMAL(10,2),
+    IGV DECIMAL(10,2),
+    Total DECIMAL(10,2)
+);
+
+-- Tabla: marcacion
+CREATE TABLE marcacion (
+    ID_Marcacion INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha_marcacion DATE NOT NULL,
+    Hora TIME NOT NULL,
+    Tipo_marcacion VARCHAR(255),
+    FK_ID_Empleado INT,
+    FOREIGN KEY (FK_ID_Empleado) REFERENCES empleado(ID_Empleado)
+);
+
+-- Tabla: falta
+CREATE TABLE falta (
+    ID_Falta INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Tipo_falta VARCHAR(255),
+    FK_ID_Empleado INT,
+    FOREIGN KEY (FK_ID_Empleado) REFERENCES empleado(ID_Empleado)
+);
+
+-- Tabla: tardanza
+CREATE TABLE tardanza (
+    ID_Tardanza INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Minutos_tarde INT,
+    FK_ID_Empleado INT,
+    FOREIGN KEY (FK_ID_Empleado) REFERENCES empleado(ID_Empleado)
+);
+
+-- Tabla: sueldo
+CREATE TABLE sueldo (
+    ID_Sueldo INT AUTO_INCREMENT PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    Monto DECIMAL(10,2) NOT NULL,
+    FK_ID_Empleado INT,
+    FOREIGN KEY (FK_ID_Empleado) REFERENCES empleado(ID_Empleado)
+);
+
+-- Tabla: pago_empleado
+CREATE TABLE pago_empleado (
+    ID_Pago_Empleado INT AUTO_INCREMENT PRIMARY KEY,
+    Sueldo_base DECIMAL(10,2) NOT NULL,
+    Total_tardanzas INT,
+    Total_faltas INT,
+    Descuento_tardanzas DECIMAL(10,2),
+    Descuento_faltas DECIMAL(10,2),
+    Sueldo_final DECIMAL(10,2),
+    FK_ID_Empleado INT,
+    FOREIGN KEY (FK_ID_Empleado) REFERENCES empleado(ID_Empleado)
+);
